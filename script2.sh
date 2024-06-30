@@ -3,13 +3,9 @@
 mkdir unpack
 cd unpack
 ../magiskboot unpack ../vendor_boot.img
-ls
-mv vendor_ramdisk_recovery.cpio vendor_ramdisk_recovery.cpio.lz4
-ls
-lz4 -d vendor_ramdisk_recovery.cpio.lz4
+lz4 -d vendor_ramdisk_recovery.cpio
 ls
 cpio -idmv < vendor_ramdisk_recovery.cpio
-ls
 # Reverse fastbootd ENG mode check
 ../magiskboot hexpatch system/bin/recovery e10313aaf40300aa6ecc009420010034 e10313aaf40300aa6ecc0094 # 20 01 00 35
 ../magiskboot hexpatch system/bin/recovery eec3009420010034 eec3009420010035
