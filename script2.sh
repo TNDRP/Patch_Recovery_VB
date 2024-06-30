@@ -3,6 +3,8 @@
 mkdir unpack
 cd unpack
 ../magiskboot unpack ../vb.img
+mv vendor_ramdisk_recovery.cpio vendor_ramdisk_recovery.cpio.lz4
+lz4 -d vendor_ramdisk_recovery.cpio.lz4
 cpio -idv < vendor_ramdisk_recovery.cpio
 ls
 # Reverse fastbootd ENG mode check
