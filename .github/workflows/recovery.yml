@@ -46,8 +46,11 @@ jobs:
         md5sum -t fastbootd-recovery.tar >> fastbootd-recovery.tar
         mv fastbootd-recovery.tar fastbootd-recovery.tar.md5
 
-    - name: Upload Recovery
-      uses: actions/upload-artifact@v3.0.0
+    - name: Upload to Release
+      uses: softprops/action-gh-release@v1
       with:
-        path: /home/runner/work/Patch-Recovery-VB/Patch-Recovery-VB/output/*.md5
+        files: home/runner/work/Patch-Recovery-VB/Patch-Recovery-VB/output/*.md5
         name: Patched-Recovery
+        tag_name: ${{ github.run_id }}
+        body: |
+          ## PATCHED RECOVERY
