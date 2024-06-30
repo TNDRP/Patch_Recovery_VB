@@ -17,7 +17,7 @@ jobs:
 
     steps:
     - name: Check Out
-      uses: actions/checkout@main
+      uses: actions/checkout@4
 
     - name: Prepare the environment
       run: |
@@ -40,8 +40,6 @@ jobs:
       run: |
         chmod a+x script2.sh
         ./script2.sh || true
-        python3 avbtool extract_public_key --key phh.pem --output phh.pub.bin
-        python3 avbtool add_hash_footer --partition_name recovery --partition_size $(wc -c vendor_boot-patched.img |cut -f 1 -d ' ') --image vendor_boot-patched.img --key phh.pem --algorithm SHA256_RSA4096
         mkdir output && cd output
         mv ../vendor_boot-patched.img vendor_boot.img
         tar cvf fastbootd-recovery.tar vendor_boot.img
