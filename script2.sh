@@ -2,7 +2,7 @@
 
 mkdir unpack
 cd unpack
-../magiskboot unpack ../vb.img
+../magiskboot unpack ../vendor_boot.img
 mv vendor_ramdisk_recovery.cpio vendor_ramdisk_recovery.cpio.lz4
 lz4 -d vendor_ramdisk_recovery.cpio.lz4
 cpio -idv < vendor_ramdisk_recovery.cpio
@@ -22,5 +22,5 @@ ls
 ../magiskboot hexpatch system/bin/recovery b4f082ee28b1701c b4f082ee28b970c1
 ../magiskboot hexpatch system/bin/recovery 9ef0f4ec28b1701c 9ef0f4ec28b9701c
 ../magiskboot cpio vendor_ramdisk_recovery.cpio 'add 0755 system/bin/recovery system/bin/recovery'
-../magiskboot repack ../vb.img new-boot.img
+../magiskboot repack ../vendor_boot.img new-boot.img
 cp new-boot.img ../vendor_boot-patched.img
