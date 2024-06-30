@@ -6,7 +6,7 @@ on:
       RECOVERY_URL:
         description: 'RECOVERY URL'
         required: true
-        default: 'https://transfer.sh/(RECOMMENDED)'
+        default: 'https://gitlab.com/thenoobdevs2024/android_dump_samsung_a55x/-/blob/UP1A.231005.007/vendor_boot.img'
 
 env:
   RECOVERY_URL: https://oshi.at/Rpjg
@@ -27,6 +27,7 @@ jobs:
       run: |
         ls
         pwd
+        wget ${{ github.event.inputs.RECOVERY_URL }}
 
     - name: Patch Process-1
       run: |
