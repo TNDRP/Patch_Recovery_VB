@@ -43,13 +43,11 @@ jobs:
         mkdir output && cd output
         mv ../vendor_boot-patched.img vendor_boot.img
         tar cvf fastbootd-recovery.tar vendor_boot.img
-        md5sum -t fastbootd-recovery.tar >> fastbootd-recovery.tar
-        mv fastbootd-recovery.tar fastbootd-recovery.tar.md5
 
     - name: Upload to Release
       uses: softprops/action-gh-release@v1
       with:
-        files: home/runner/work/Patch-Recovery-VB/Patch-Recovery-VB/output/*.md5
+        files: home/runner/work/Patch-Recovery-VB/Patch-Recovery-VB/output/fastbootd-recovery.tar
         name: Patched-Recovery
         tag_name: ${{ github.run_id }}
         body: |
