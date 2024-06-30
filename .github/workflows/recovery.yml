@@ -25,9 +25,10 @@ jobs:
 
     - name: Fetch image from URL
       run: |
+        wget ${{ github.event.inputs.RECOVERY_URL }}
         ls
         pwd
-        wget ${{ github.event.inputs.RECOVERY_URL }}
+        file vendor_boot.img
 
     - name: Patch Process-1
       run: |
